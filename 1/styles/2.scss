@@ -1,0 +1,28 @@
+a:first-of-type{
+    color: gray;
+}
+
+a:first-of-type:visited{
+    color: green;
+}
+
+a:first-of-type:hover{
+    color: yellow;
+}
+
+a:nth-of-type(2){
+    text-decoration: none;
+}
+
+a:nth-of-type(2):hover{
+    text-decoration: underline;
+}
+
+a:nth-of-type(3){
+    display: inline-block;
+    padding: 10px 20px;
+    border: 5px solid lightblue;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+}

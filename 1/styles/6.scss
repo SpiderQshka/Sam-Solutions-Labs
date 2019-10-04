@@ -1,0 +1,29 @@
+#section6{
+    .comics-wrapper{
+        display: inline-block;
+        padding: 5px;
+        background-color: lightblue;
+        .comics-name{
+            
+        }
+        .comics-block{
+            position: relative;
+            display: inline-flex;
+            flex-wrap: wrap;
+            margin: 5px;
+            .comics-image{
+                height: 200px;
+                border: 1px solid #000;
+            }
+            .comics-title{
+                position: absolute;
+                display: inline-block;  
+                padding: 5px;
+                background-color: #fff;
+                border: 1px solid #000;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+}

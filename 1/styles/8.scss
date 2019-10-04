@@ -1,0 +1,37 @@
+#section8{
+    .container{
+        width: 40%;
+        height: 100px;
+        margin-bottom: 10px;
+        background-color: lightblue;
+        .element{
+            width: 50%;
+            height: 50px;
+            background-color: lightgreen;
+        }
+    }
+    .container1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container2{
+        position: relative;
+        .element2{
+            position: absolute;
+            top: calc(50% - 25px);
+            left: 25%;
+        }
+    }
+    .container3{
+        display: table;
+        .container3-2{
+            display: table-cell;
+            vertical-align: middle;
+            .element3{
+                margin-left: 25%;
+            }
+        }
+        
+    }
+}

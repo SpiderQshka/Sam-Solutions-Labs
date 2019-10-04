@@ -1,0 +1,27 @@
+table{
+    text-align: center;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    td, th{
+        border: 1px solid #000;
+        padding: 5px 10px;
+    }
+}
+
+table#second tr:nth-of-type(even){
+    background-color: lightgray;
+}
+
+.table-box{
+    max-width: 250px;
+    overflow-x: scroll;
+    table#third{
+        width: 100%;
+        td{
+            padding: 25px;
+        }
+        td:first-of-type(){
+            overflow-x: visible;
+        }
+    }  
+}

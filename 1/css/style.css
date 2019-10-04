@@ -1,0 +1,271 @@
+#section1 p {
+  font-size: 1.1rem;
+  color: grey;
+}
+
+#section1 p {
+  text-indent: 20px;
+}
+
+#section1 p:first-of-type {
+  color: pink;
+}
+
+#section1 p:nth-child(even) {
+  font-variant: small-caps;
+}
+
+#section1 p:nth-child(2) {
+  border: 5px solid violet;
+}
+
+#section1 p:last-of-type {
+  text-transform: uppercase;
+}
+
+a:first-of-type {
+  color: gray;
+}
+
+a:first-of-type:visited {
+  color: green;
+}
+
+a:first-of-type:hover {
+  color: yellow;
+}
+
+a:nth-of-type(2) {
+  text-decoration: none;
+}
+
+a:nth-of-type(2):hover {
+  text-decoration: underline;
+}
+
+a:nth-of-type(3) {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 5px solid lightblue;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+}
+
+table {
+  text-align: center;
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border: 1px solid #000;
+  padding: 5px 10px;
+}
+
+table#second tr:nth-of-type(even) {
+  background-color: lightgray;
+}
+
+.table-box {
+  max-width: 250px;
+  overflow-x: scroll;
+}
+
+.table-box table#third {
+  width: 100%;
+}
+
+.table-box table#third td {
+  padding: 25px;
+}
+
+.table-box table#third td:first-of-type() {
+  overflow-x: visible;
+}
+
+#section4 {
+  background-color: lightgray;
+}
+
+#section4 .image-container {
+  position: relative;
+  display: inline-block;
+  background: url("../images/2a747153af18e11dc62218d468d21182.jpg") no-repeat 0 0;
+  background-size: cover;
+  width: 160px;
+  height: 160px;
+}
+
+#section4 .image-container1 {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 -10px 0px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 -10px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+#section4 .image-container2 {
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 5px 30px black inset;
+          box-shadow: 0 0 5px 30px black inset;
+}
+
+#section4 .image-container3:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 80px;
+  height: 35px;
+  background-color: rgba(236, 183, 35, 0.5);
+  border: 1px solid rgba(204, 150, 3, 0.5);
+  -webkit-transform: translateX(40px) translateY(-15px);
+          transform: translateX(40px) translateY(-15px);
+}
+
+#section4 .image-container4 {
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 8px 8px lightgray inset;
+          box-shadow: 0 0 8px 8px lightgray inset;
+}
+
+main {
+  width: 400px;
+  padding: 10px;
+  background-color: yellow;
+  border: 3px dashed orange;
+}
+
+main > * {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+main h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2rem;
+  text-decoration: underline overline;
+}
+
+main h2 {
+  font-size: 1.5rem;
+}
+
+main img {
+  border: 3px solid #000;
+}
+
+main b {
+  display: block;
+  font-size: 1.5rem;
+}
+
+#section6 .comics-wrapper {
+  display: inline-block;
+  padding: 5px;
+  background-color: lightblue;
+}
+
+#section6 .comics-wrapper .comics-block {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 5px;
+}
+
+#section6 .comics-wrapper .comics-block .comics-image {
+  height: 200px;
+  border: 1px solid #000;
+}
+
+#section6 .comics-wrapper .comics-block .comics-title {
+  position: absolute;
+  display: inline-block;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid #000;
+  bottom: 0;
+  left: 0;
+}
+
+#section7 .circle {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#section7 .triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red;
+}
+
+#section7 .romb {
+  margin: 20px 0 0 10px;
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#section8 .container {
+  width: 40%;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: lightblue;
+}
+
+#section8 .container .element {
+  width: 50%;
+  height: 50px;
+  background-color: lightgreen;
+}
+
+#section8 .container1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#section8 .container2 {
+  position: relative;
+}
+
+#section8 .container2 .element2 {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 25%;
+}
+
+#section8 .container3 {
+  display: table;
+}
+
+#section8 .container3 .container3-2 {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#section8 .container3 .container3-2 .element3 {
+  margin-left: 25%;
+}
+
+header {
+  font-size: 3rem;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
