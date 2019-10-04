@@ -1,0 +1,140 @@
+@import "normalize.scss";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 25px;   
+}
+
+header#header{
+    background: #2F4B6E 0% 0% no-repeat padding-box;
+    .container{
+        min-height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        #self-info{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .img-wrapper{
+                height: 130px;
+                width: 130px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .info-text{
+                h2{
+                    margin: 0;
+                    text-align: left;
+                    font-size: 18px;
+                    font-weight: normal;
+                    letter-spacing: 0;
+                }
+                span{
+                    text-align: left;
+                    font: Regular 10px/14px Open Sans;
+                    letter-spacing: 0;
+                }
+                color: white;
+            }
+        }
+        .contacts{
+            ul{
+                list-style: none;
+                text-decoration: none;
+                color: white;
+                li{
+                    margin-bottom: 10px;
+                }
+                img{
+                    width: 1.1rem;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+main#main{
+    background: #F4FCFF 0% 0% no-repeat padding-box;
+    .container{
+        display: grid;
+        grid-auto-flow: row dense;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        section{
+            padding: 30px 30px 0 0;
+            h2{
+                padding: 0 0 20px;
+                font-weight: normal;
+                img{
+                    padding: 0 10px 0 0;
+                }
+                .first-word{
+                    font-weight: bold;
+                }
+            }
+            .section-content{
+                padding-left: 20px;
+                .section-block{
+                    display: flex;
+                    .section-images{
+                        .dot{
+                            width: 15px;
+                            height: 15px;
+                            margin: 5px 15px;
+                            border-radius: 50%;
+                            background: #1C88F3 0% 0% no-repeat padding-box;
+                        }
+                        .line{
+                            height: calc(100% - 25px);
+                            width: 3px;
+                            background: #1C88F3 0% 0% no-repeat padding-box;
+                            margin: 0 auto;
+                        }
+                    }
+                    .section-text{
+                        h3{
+                            margin: 0 0 10px;
+                        }
+                        &:last-child{
+                            padding-bottom: 20px;
+                        }
+                    }
+                    .muted-text{
+                        color: #989898;
+                    }
+                }
+                .certification-block{
+                    flex-direction: column;
+                    .certificate-info{
+                        display: flex;
+                        margin-bottom: 30px;
+                        img{
+                            padding-right: 5px;
+                            width: 100px;
+                        }
+                        .certificate-name{
+                            span.info{
+                                padding: 0 7px;
+                                border-radius: 10px;
+                                color: rgb(26, 212, 26);
+                                border: 1px solid rgb(26, 212, 26);
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                    .certificate-href{
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}

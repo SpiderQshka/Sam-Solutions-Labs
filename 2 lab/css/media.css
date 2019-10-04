@@ -1,0 +1,15 @@
+@media all and (max-width: 800px) {
+  main#main .container section {
+    padding: 30px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  header#header .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+/*# sourceMappingURL=media.css.map */
