@@ -6,7 +6,7 @@ body{
 }
 
 .container{
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto;
     line-height: 25px;   
 }
@@ -67,10 +67,10 @@ main#main{
     background: #F4FCFF 0% 0% no-repeat padding-box;
     .container{
         display: grid;
-        grid-auto-flow: row dense;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-column-gap: 100px;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         section{
-            padding: 30px 0 0 0;
+            padding: 20px;
             h2{
                 padding: 0 0 20px;
                 font-weight: normal;
@@ -116,10 +116,11 @@ main#main{
                     flex-direction: column;
                     .certificate-info{
                         display: flex;
+                        align-items: center;
                         margin-bottom: 30px;
                         img{
-                            padding-right: 5px;
-                            width: 100px;
+                            padding-right: 10px;
+                            min-width: 100px;
                         }
                         .certificate-name{
                             span.info{
