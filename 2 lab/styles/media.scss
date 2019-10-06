@@ -1,4 +1,10 @@
-@media all and (max-width: 600px){
+@media all and (max-width: 1100px){
+    #gallery{
+        grid-column: 1 / 2 !important;
+    }
+}
+
+@media all and (max-width: 800px){
     header#header{
         .container{
             flex-direction: column;

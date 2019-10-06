@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../styles/default-theme.scss"
+    ],
+    "names": [],
+    "file": "default-theme.css"
+}

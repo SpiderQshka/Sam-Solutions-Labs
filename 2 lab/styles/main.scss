@@ -1,4 +1,6 @@
 @import "normalize.scss";
+@import 'default-theme.scss';
+@import 'animations.scss';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
 body{
@@ -6,7 +8,8 @@ body{
 }
 
 .container{
-    max-width: 950px;
+    width: 80%;
+    max-width: 1000px;
     margin: 0 auto;
     line-height: 25px;   
 }
@@ -28,8 +31,14 @@ header#header{
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                &:hover{
+                    img{
+                        clip-path: ellipse(30% 30% at 50% 47%);
+                    }
+                }
             }
             .info-text{
+                color: white;
                 h2{
                     margin: 0;
                     text-align: left;
@@ -42,7 +51,6 @@ header#header{
                     font-size: 14px;
                     letter-spacing: 0;
                 }
-                color: white;
             }
         }
         .contacts{
@@ -52,7 +60,11 @@ header#header{
                 text-decoration: none;
                 color: white;
                 li{
+                    transition: .7s;
                     margin-bottom: 10px;
+                    &:hover{
+                        color: $muted-text;
+                    }
                 }
                 img{
                     width: 1.1rem;
@@ -66,16 +78,18 @@ header#header{
 main#main{
     background: #F4FCFF 0% 0% no-repeat padding-box;
     .container{
+        position: relative;
         display: grid;
         grid-column-gap: 100px;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        section{
-            padding: 10px;
+        section.item{
+            padding: 20px 0;
             h2{
                 padding: 0 0 20px;
                 font-weight: normal;
                 img{
-                    padding: 0 10px 0 0;
+                    margin: 0 10px 0 0;
+                    transition: .7s;
                 }
                 .first-word{
                     font-weight: bold;
@@ -83,13 +97,15 @@ main#main{
             }
             .section-content{
                 padding-left: 20px;
+                // display: grid;
                 .section-block{
-                    display: flex;
+                    display: grid;
+                    grid-template-columns: 45px 1fr;
                     .section-images{
                         .dot{
                             width: 15px;
                             height: 15px;
-                            margin: 5px 15px;
+                            margin: 5px auto;
                             border-radius: 50%;
                             background: #1C88F3 0% 0% no-repeat padding-box;
                         }
@@ -113,14 +129,16 @@ main#main{
                     }
                 }
                 .certification-block{
+                    display: flex;
                     flex-direction: column;
+                    margin-bottom: 30px;
                     .certificate-info{
-                        display: flex;
-                        align-items: center;
-                        margin-bottom: 30px;
+                        vertical-align: middle; 
                         img{
+                            float: left;
                             padding-right: 10px;
                             min-width: 100px;
+                            shape-outside: circle(50%);
                         }
                         .certificate-name{
                             span.info{
@@ -134,6 +152,38 @@ main#main{
                     }
                     .certificate-href{
                         text-align: right;
+                    }
+                }
+            }
+            &:hover{
+                h2{
+                    img{
+                        transform: rotate(-90deg)
+                    }
+                }
+                
+            }
+        }
+        #gallery{
+            grid-column: 1 / 3;
+            .section-content{
+                padding: 0;
+                display: grid;
+                position: relative;
+                grid-gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            .gallery-block{
+                img{
+                    width: 100%;
+                    transition: .7s;
+                    border: 3px solid rgba($color: #1C88F3, $alpha: .8)
+                }
+                &:hover{
+                    cursor: zoom-in;
+                    img{
+                        transform: scale(1.15);
+                        // clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
                     }
                 }
             }
