@@ -354,6 +354,7 @@ body {
 .container {
   width: 80%;
   max-width: 1000px;
+  min-width: 350px;
   margin: 0 auto;
   line-height: 25px;
 }
@@ -419,11 +420,8 @@ header#header .container #self-info .info-text span {
   letter-spacing: 0;
 }
 
-header#header .container .contacts {
-  padding-right: 15px;
-}
-
 header#header .container .contacts ul {
+  padding: 0;
   list-style: none;
   text-decoration: none;
   color: white;
@@ -450,34 +448,34 @@ main#main .container {
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
-main#main .container section {
-  padding: 10px;
+main#main .container section.item {
+  padding: 20px 0;
 }
 
-main#main .container section h2 {
+main#main .container section.item h2 {
   padding: 0 0 20px;
   font-weight: normal;
 }
 
-main#main .container section h2 img {
+main#main .container section.item h2 img {
   padding: 0 10px 0 0;
 }
 
-main#main .container section h2 .first-word {
+main#main .container section.item h2 .first-word {
   font-weight: bold;
 }
 
-main#main .container section .section-content {
+main#main .container section.item .section-content {
   padding-left: 20px;
 }
 
-main#main .container section .section-content .section-block {
+main#main .container section.item .section-content .section-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-main#main .container section .section-content .section-block .section-images .dot {
+main#main .container section.item .section-content .section-block .section-images .dot {
   width: 15px;
   height: 15px;
   margin: 5px 15px;
@@ -485,33 +483,33 @@ main#main .container section .section-content .section-block .section-images .do
   background: #1C88F3 0% 0% no-repeat padding-box;
 }
 
-main#main .container section .section-content .section-block .section-images .line {
+main#main .container section.item .section-content .section-block .section-images .line {
   height: calc(100% - 25px);
   width: 3px;
   background: #1C88F3 0% 0% no-repeat padding-box;
   margin: 0 auto;
 }
 
-main#main .container section .section-content .section-block .section-text h3 {
+main#main .container section.item .section-content .section-block .section-text h3 {
   margin: 0 0 10px;
 }
 
-main#main .container section .section-content .section-block .section-text:last-child {
+main#main .container section.item .section-content .section-block .section-text:last-child {
   padding-bottom: 20px;
 }
 
-main#main .container section .section-content .section-block .muted-text {
+main#main .container section.item .section-content .section-block .muted-text {
   color: #989898;
 }
 
-main#main .container section .section-content .certification-block {
+main#main .container section.item .section-content .certification-block {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-main#main .container section .section-content .certification-block .certificate-info {
+main#main .container section.item .section-content .certification-block .certificate-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -521,12 +519,12 @@ main#main .container section .section-content .certification-block .certificate-
   margin-bottom: 30px;
 }
 
-main#main .container section .section-content .certification-block .certificate-info img {
+main#main .container section.item .section-content .certification-block .certificate-info img {
   padding-right: 10px;
   min-width: 100px;
 }
 
-main#main .container section .section-content .certification-block .certificate-info .certificate-name span.info {
+main#main .container section.item .section-content .certification-block .certificate-info .certificate-name span.info {
   padding: 0 7px;
   border-radius: 10px;
   color: #1ad41a;
@@ -534,7 +532,7 @@ main#main .container section .section-content .certification-block .certificate-
   white-space: nowrap;
 }
 
-main#main .container section .section-content .certification-block .certificate-href {
+main#main .container section.item .section-content .certification-block .certificate-href {
   text-align: right;
 }
 /*# sourceMappingURL=main.css.map */

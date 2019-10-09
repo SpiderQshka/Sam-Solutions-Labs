@@ -5,3 +5,21 @@
         }
     }
 }
+
+@media all and (max-width: 450px){
+    header#header{
+        #self-info{
+            flex-direction: column;
+        }
+        .contacts{
+            padding: 0 !important;
+        }
+    }
+    main#main{
+        section.item{
+            section{
+                padding: 0 10px;
+            }
+        }
+    }
+}

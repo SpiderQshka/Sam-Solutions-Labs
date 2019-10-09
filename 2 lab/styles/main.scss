@@ -8,6 +8,7 @@ body{
 .container{
     width: 80%;
     max-width: 1000px;
+    min-width: 350px;
     margin: 0 auto;
     line-height: 25px;   
 }
@@ -47,8 +48,8 @@ header#header{
             }
         }
         .contacts{
-            padding-right: 15px;
             ul{
+                padding: 0;
                 list-style: none;
                 text-decoration: none;
                 color: white;
@@ -70,8 +71,8 @@ main#main{
         display: grid;
         grid-column-gap: 100px;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        section{
-            padding: 10px;
+        section.item{
+            padding: 20px 0;
             h2{
                 padding: 0 0 20px;
                 font-weight: normal;
