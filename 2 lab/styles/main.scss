@@ -1,10 +1,49 @@
 @import "normalize.scss";
-@import 'default-theme.scss';
-@import 'animations.scss';
+@import 'themes.scss';
+@import 'switcher-params.scss';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
 
 body{
     font-family: 'Open Sans', sans-serif;
+    .switch-wrap {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        background: $background;
+        padding: $padding;
+        width: $width;
+        height: $height;
+        border-radius: $height / 2;
+        input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        }
+    .switch {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0fr 1fr 1fr;
+    transition: .2s;
+    &::after {
+        content: '';
+        border-radius: 50%;
+        background: $button-background-unchecked;
+        grid-column: 2;
+        transition: background .2s;
+    }
+    }
+    input:checked {
+        $dark: 'false' !global;
+    + .switch {
+        grid-template-columns: 1fr 1fr 0fr; 
+        &::after {
+            background-color: $button-background-checked;
+        }
+        }
+    }
 }
 
 .container{
@@ -15,7 +54,7 @@ body{
 }
 
 header#header{
-    background: #2F4B6E 0% 0% no-repeat padding-box;
+    background: theme-color($dark, 'header-bg-color') 0% 0% no-repeat padding-box;
     .container{
         min-height: 190px;
         display: flex;
@@ -38,7 +77,7 @@ header#header{
                 }
             }
             .info-text{
-                color: white;
+                color: theme-color($dark, 'header-text-color');
                 h2{
                     margin: 0;
                     text-align: left;
@@ -58,12 +97,12 @@ header#header{
             ul{
                 list-style: none;
                 text-decoration: none;
-                color: white;
+                color: theme-color($dark, 'header-text-color');
                 li{
                     transition: .7s;
                     margin-bottom: 10px;
                     &:hover{
-                        color: $muted-text;
+                        color: theme-color($dark, 'muted-text');
                     }
                 }
                 img{
@@ -76,7 +115,7 @@ header#header{
 }
 
 main#main{
-    background: #F4FCFF 0% 0% no-repeat padding-box;
+    background: theme-color($dark, 'main-bg-color') 0% 0% no-repeat padding-box;
     .container{
         position: relative;
         display: grid;
@@ -97,7 +136,6 @@ main#main{
             }
             .section-content{
                 padding-left: 20px;
-                // display: grid;
                 .section-block{
                     display: grid;
                     grid-template-columns: 45px 1fr;
@@ -107,12 +145,12 @@ main#main{
                             height: 15px;
                             margin: 5px auto;
                             border-radius: 50%;
-                            background: #1C88F3 0% 0% no-repeat padding-box;
+                            background: theme-color($dark, 'images-border-color') 0% 0% no-repeat padding-box;
                         }
                         .line{
                             height: calc(100% - 25px);
                             width: 3px;
-                            background: #1C88F3 0% 0% no-repeat padding-box;
+                            background: theme-color($dark, 'images-border-color') 0% 0% no-repeat padding-box;
                             margin: 0 auto;
                         }
                     }
@@ -125,7 +163,7 @@ main#main{
                         }
                     }
                     .muted-text{
-                        color: #989898;
+                        color: theme-color($dark, 'muted-text');
                     }
                 }
                 .certification-block{
@@ -144,8 +182,8 @@ main#main{
                             span.info{
                                 padding: 0 7px;
                                 border-radius: 10px;
-                                color: rgb(26, 212, 26);
-                                border: 1px solid rgb(26, 212, 26);
+                                color: theme-color($dark, 'sertificate-additional-text-color');
+                                border: 1px solid theme-color($dark, 'sertificate-additional-text-color');
                                 white-space: nowrap;
                             }
                         }
@@ -177,13 +215,12 @@ main#main{
                 img{
                     width: 100%;
                     transition: .7s;
-                    border: 3px solid rgba($color: #1C88F3, $alpha: .8)
+                    border: 3px solid rgba($color: theme-color($dark, 'images-border-color'), $alpha: .8)
                 }
                 &:hover{
                     cursor: zoom-in;
                     img{
                         transform: scale(1.15);
-                        // clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
                     }
                 }
             }

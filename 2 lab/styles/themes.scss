@@ -1,0 +1,30 @@
+$dark: 'false';
+$themes: (
+    main: (
+        header-bg-color: #2F4B6E,
+        header-text-color: white,
+        main-bg-color: #F4FCFF,
+        main-text-color: black,
+        muted-text: #989898,
+        images-border-color: #1C88F3,
+        sertificate-additional-text-color: rgb(26, 212, 26),
+    ),
+    dark: (
+        header-bg-color: black,
+        header-text-color: white,
+        main-bg-color: #F4FCFF,
+        main-text-color: black,
+        muted-text: #989898,
+        images-border-color: #1C88F3,
+        sertificate-additional-text-color: rgb(26, 212, 26),
+    )
+);
+
+@function theme-color($isDark: 'false', $key: 'muted-text') {
+    @if $isDark == 'true' {
+        @return map-get(map-get($themes, 'dark'), $key);
+    }
+    @else {
+        @return map-get(map-get($themes, 'main'), $key);
+    }
+}
