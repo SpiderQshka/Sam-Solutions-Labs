@@ -11,3 +11,19 @@
         }
     }
 }
+
+@media all and (max-width: 450px){
+    header#header{
+        #self-info{
+            flex-direction: column;
+        }
+        .contacts{
+            padding: 0 !important;
+        }
+    }
+    main#main{
+        #left, #right{
+            padding: 0 10px;
+        }
+    }
+}

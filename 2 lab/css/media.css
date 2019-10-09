@@ -14,4 +14,19 @@
             flex-direction: column;
   }
 }
+
+@media all and (max-width: 450px) {
+  header#header #self-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header#header .contacts {
+    padding: 0 !important;
+  }
+  main#main #left, main#main #right {
+    padding: 0 10px;
+  }
+}
 /*# sourceMappingURL=media.css.map */

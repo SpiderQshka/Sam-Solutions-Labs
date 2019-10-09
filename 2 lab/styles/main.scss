@@ -6,6 +6,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
     .switch-wrap {
+        z-index: 9999;
         position: fixed;
         top: 10px;
         left: 10px;
@@ -49,6 +50,7 @@ body{
 .container{
     width: 80%;
     max-width: 1000px;
+    min-width: 400px;
     margin: 0 auto;
     line-height: 25px;   
 }
@@ -93,8 +95,8 @@ header#header{
             }
         }
         .contacts{
-            padding-right: 15px;
             ul{
+                padding: 0;
                 list-style: none;
                 text-decoration: none;
                 color: theme-color($dark, 'header-text-color');

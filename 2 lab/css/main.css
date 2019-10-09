@@ -353,6 +353,7 @@ body {
 }
 
 body .switch-wrap {
+  z-index: 9999;
   position: fixed;
   top: 10px;
   left: 10px;
@@ -403,6 +404,7 @@ body input:checked + .switch::after {
 .container {
   width: 80%;
   max-width: 1000px;
+  min-width: 400px;
   margin: 0 auto;
   line-height: 25px;
 }
@@ -473,11 +475,8 @@ header#header .container #self-info .info-text span {
   letter-spacing: 0;
 }
 
-header#header .container .contacts {
-  padding-right: 15px;
-}
-
 header#header .container .contacts ul {
+  padding: 0;
   list-style: none;
   text-decoration: none;
   color: white;
