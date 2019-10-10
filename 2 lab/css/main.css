@@ -348,11 +348,7 @@ template {
   display: none;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-}
-
-body .switch-wrap {
+.switch-wrap {
   z-index: 9999;
   position: fixed;
   top: 10px;
@@ -365,14 +361,60 @@ body .switch-wrap {
   border-radius: 23.5px;
 }
 
-body .switch-wrap input {
+input {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-body .switch {
+input:checked + .switch-wrap .switch {
+  -ms-grid-columns: 1fr 1fr 0fr;
+      grid-template-columns: 1fr 1fr 0fr;
+}
+
+input:checked + .switch-wrap .switch:after {
+  background-color: #F4FCFF;
+}
+
+input:checked ~ #header {
+  background-color: #2c3032;
+}
+
+input:checked ~ #header .info-text, input:checked ~ #header .contacts ul {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #header .contacts ul li:hover {
+  color: #989898 !important;
+}
+
+input:checked ~ #main {
+  background-color: #0B0300 !important;
+}
+
+input:checked ~ #main h2 {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .section-text {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .section-content p {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .certificate-href {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .certificate-info img {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.switch {
   height: 100%;
   display: -ms-grid;
   display: grid;
@@ -382,7 +424,7 @@ body .switch {
   transition: .2s;
 }
 
-body .switch::after {
+.switch::after {
   content: '';
   border-radius: 50%;
   background: #1C88F3;
@@ -392,13 +434,8 @@ body .switch::after {
   transition: background .2s;
 }
 
-body input:checked + .switch {
-  -ms-grid-columns: 1fr 1fr 0fr;
-      grid-template-columns: 1fr 1fr 0fr;
-}
-
-body input:checked + .switch::after {
-  background-color: #F4FCFF;
+body {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -407,6 +444,11 @@ body input:checked + .switch::after {
   min-width: 400px;
   margin: 0 auto;
   line-height: 25px;
+}
+
+#header, #main, span, ul, p, img, h1, h2, h3 {
+  -webkit-transition: .7s;
+  transition: .7s;
 }
 
 header#header {
@@ -503,11 +545,6 @@ main#main {
 
 main#main .container {
   position: relative;
-  display: -ms-grid;
-  display: grid;
-  grid-column-gap: 100px;
-  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 main#main .container section.item {
@@ -521,8 +558,6 @@ main#main .container section.item h2 {
 
 main#main .container section.item h2 img {
   margin: 0 10px 0 0;
-  -webkit-transition: .7s;
-  transition: .7s;
 }
 
 main#main .container section.item h2 .first-word {
@@ -599,6 +634,7 @@ main#main .container section.item .section-content .certification-block .certifi
 
 main#main .container section.item .section-content .certification-block .certificate-href {
   text-align: right;
+  color: #2c3032;
 }
 
 main#main .container section.item:hover h2 img {
@@ -624,8 +660,6 @@ main#main .container #gallery .section-content {
 
 main#main .container #gallery .gallery-block img {
   width: 100%;
-  -webkit-transition: .7s;
-  transition: .7s;
   border: 3px solid rgba(28, 136, 243, 0.8);
 }
 

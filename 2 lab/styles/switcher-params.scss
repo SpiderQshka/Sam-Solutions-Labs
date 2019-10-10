@@ -1,6 +1,78 @@
+@import 'themes.scss';
+
 $background: #15273b;
 $button-background-unchecked: #1C88F3;
 $button-background-checked: #F4FCFF;
 $width: 80px;
 $padding: 7px;
 $height: $width / 2 + $padding;
+
+.switch-wrap {
+    z-index: 9999;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    background: $background;
+    padding: $padding;
+    width: $width;
+    height: $height;
+    border-radius: $height / 2;
+}
+input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    &:checked{
+        & + .switch-wrap .switch {
+            grid-template-columns: 1fr 1fr 0fr; 
+            &:after {
+                background-color: $button-background-checked;
+            }
+        }
+        & ~ #header{ 
+            background-color: $header-bg-color-dark;
+            .info-text, .contacts ul{
+                color: $header-text-color-dark !important; 
+            }
+            .contacts ul li:hover{
+                color: $muted-text-dark !important;
+            }
+        }
+        & ~ #main{
+            background-color: $main-bg-color-dark !important;
+            h2{
+                color: $main-text-color-dark !important;
+            }
+            .section-text{
+                color: $main-text-color-dark !important;
+            }
+            .section-content p{
+                color: $main-text-color-dark !important;
+            }
+            .certificate-href{
+                color: $main-text-color-dark !important;
+            }
+            .certificate-info{
+                img{
+                    filter: invert(100%) !important;
+                }
+            }
+        }
+    }
+}
+.switch {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0fr 1fr 1fr;
+    transition: .2s;
+    &::after {
+        content: '';
+        border-radius: 50%;
+        background: $button-background-unchecked;
+        grid-column: 2;
+        transition: background .2s;
+    }
+}
+

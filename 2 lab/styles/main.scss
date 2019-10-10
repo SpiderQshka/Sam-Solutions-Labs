@@ -5,46 +5,6 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-    .switch-wrap {
-        z-index: 9999;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        cursor: pointer;
-        background: $background;
-        padding: $padding;
-        width: $width;
-        height: $height;
-        border-radius: $height / 2;
-        input {
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        }
-    .switch {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 0fr 1fr 1fr;
-    transition: .2s;
-    &::after {
-        content: '';
-        border-radius: 50%;
-        background: $button-background-unchecked;
-        grid-column: 2;
-        transition: background .2s;
-    }
-    }
-    input:checked {
-        $dark: 'false' !global;
-    + .switch {
-        grid-template-columns: 1fr 1fr 0fr; 
-        &::after {
-            background-color: $button-background-checked;
-        }
-        }
-    }
 }
 
 .container{
@@ -52,11 +12,15 @@ body{
     max-width: 1000px;
     min-width: 400px;
     margin: 0 auto;
-    line-height: 25px;   
+    line-height: 25px; 
 }
 
+#header, #main, span, ul, p, img, h1, h2, h3{
+    transition: .7s; 
+}
+ 
 header#header{
-    background: theme-color($dark, 'header-bg-color') 0% 0% no-repeat padding-box;
+    background: $header-bg-color 0% 0% no-repeat padding-box;
     .container{
         min-height: 190px;
         display: flex;
@@ -79,7 +43,7 @@ header#header{
                 }
             }
             .info-text{
-                color: theme-color($dark, 'header-text-color');
+                color: $header-text-color;
                 h2{
                     margin: 0;
                     text-align: left;
@@ -95,16 +59,16 @@ header#header{
             }
         }
         .contacts{
-            ul{
+            ul{ 
                 padding: 0;
                 list-style: none;
                 text-decoration: none;
-                color: theme-color($dark, 'header-text-color');
+                color: $header-text-color;
                 li{
                     transition: .7s;
                     margin-bottom: 10px;
                     &:hover{
-                        color: theme-color($dark, 'muted-text');
+                        color: $muted-text;
                     }
                 }
                 img{
@@ -117,12 +81,9 @@ header#header{
 }
 
 main#main{
-    background: theme-color($dark, 'main-bg-color') 0% 0% no-repeat padding-box;
+    background: $main-bg-color 0% 0% no-repeat padding-box;
     .container{
-        position: relative;
-        display: grid;
-        grid-column-gap: 100px;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        position: relative; 
         section.item{
             padding: 20px 0;
             h2{
@@ -130,7 +91,6 @@ main#main{
                 font-weight: normal;
                 img{
                     margin: 0 10px 0 0;
-                    transition: .7s;
                 }
                 .first-word{
                     font-weight: bold;
@@ -143,16 +103,16 @@ main#main{
                     grid-template-columns: 45px 1fr;
                     .section-images{
                         .dot{
-                            width: 15px;
+                            width: 15px; 
                             height: 15px;
                             margin: 5px auto;
                             border-radius: 50%;
-                            background: theme-color($dark, 'images-border-color') 0% 0% no-repeat padding-box;
+                            background: $images-border-color 0% 0% no-repeat padding-box;
                         }
                         .line{
                             height: calc(100% - 25px);
                             width: 3px;
-                            background: theme-color($dark, 'images-border-color') 0% 0% no-repeat padding-box;
+                            background: $images-border-color 0% 0% no-repeat padding-box;
                             margin: 0 auto;
                         }
                     }
@@ -165,7 +125,7 @@ main#main{
                         }
                     }
                     .muted-text{
-                        color: theme-color($dark, 'muted-text');
+                        color: $muted-text;
                     }
                 }
                 .certification-block{
@@ -181,17 +141,18 @@ main#main{
                             shape-outside: circle(50%);
                         }
                         .certificate-name{
-                            span.info{
+                            span.info{ 
                                 padding: 0 7px;
                                 border-radius: 10px;
-                                color: theme-color($dark, 'sertificate-additional-text-color');
-                                border: 1px solid theme-color($dark, 'sertificate-additional-text-color');
+                                color: $certificate-additional-text-color;
+                                border: 1px solid $certificate-additional-text-color;
                                 white-space: nowrap;
                             }
                         }
                     }
                     .certificate-href{
                         text-align: right;
+                        color: $main-text-color; 
                     }
                 }
             }
@@ -216,8 +177,7 @@ main#main{
             .gallery-block{
                 img{
                     width: 100%;
-                    transition: .7s;
-                    border: 3px solid rgba($color: theme-color($dark, 'images-border-color'), $alpha: .8)
+                    border: 3px solid rgba($color: $images-border-color, $alpha: .8)
                 }
                 &:hover{
                     cursor: zoom-in;

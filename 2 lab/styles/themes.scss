@@ -1,30 +1,16 @@
-$dark: 'false';
-$themes: (
-    main: (
-        header-bg-color: #2F4B6E,
-        header-text-color: white,
-        main-bg-color: #F4FCFF,
-        main-text-color: black,
-        muted-text: #989898,
-        images-border-color: #1C88F3,
-        sertificate-additional-text-color: rgb(26, 212, 26),
-    ),
-    dark: (
-        header-bg-color: black,
-        header-text-color: white,
-        main-bg-color: #F4FCFF,
-        main-text-color: black,
-        muted-text: #989898,
-        images-border-color: #1C88F3,
-        sertificate-additional-text-color: rgb(26, 212, 26),
-    )
-);
+$header-bg-color: #2F4B6E;
+$header-text-color: white;
+$main-bg-color: #F4FCFF;
+$main-text-color: #2c3032;
+$muted-text: #989898;
+$images-border-color: #1C88F3;
+$certificate-additional-text-color: rgb(26, 212, 26);
 
-@function theme-color($isDark: 'false', $key: 'muted-text') {
-    @if $isDark == 'true' {
-        @return map-get(map-get($themes, 'dark'), $key);
-    }
-    @else {
-        @return map-get(map-get($themes, 'main'), $key);
-    }
-}
+$header-bg-color-dark: #2c3032;
+$header-text-color-dark: #F4FCFF;
+$main-bg-color-dark: #0B0300;
+$main-text-color-dark: #F4FCFF;
+$muted-text-dark: #989898;
+$images-border-color-dark: #1C88F3;
+$certificate-additional-text-color-dark: rgb(26, 212, 26);
+    

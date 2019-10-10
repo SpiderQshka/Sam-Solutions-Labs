@@ -1,1 +1,86 @@
-/* No CSS *//*# sourceMappingURL=switcher-params.css.map */
+.switch-wrap {
+  z-index: 9999;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  background: #15273b;
+  padding: 7px;
+  width: 80px;
+  height: 47px;
+  border-radius: 23.5px;
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input:checked + .switch-wrap .switch {
+  -ms-grid-columns: 1fr 1fr 0fr;
+      grid-template-columns: 1fr 1fr 0fr;
+}
+
+input:checked + .switch-wrap .switch:after {
+  background-color: #F4FCFF;
+}
+
+input:checked ~ #header {
+  background-color: #2c3032;
+}
+
+input:checked ~ #header .info-text, input:checked ~ #header .contacts ul {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #header .contacts ul li:hover {
+  color: #989898 !important;
+}
+
+input:checked ~ #main {
+  background-color: #0B0300 !important;
+}
+
+input:checked ~ #main h2 {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .section-text {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .section-content p {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .certificate-href {
+  color: #F4FCFF !important;
+}
+
+input:checked ~ #main .certificate-info img {
+  -webkit-filter: invert(100%) !important;
+          filter: invert(100%) !important;
+}
+
+.switch {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0fr 1fr 1fr;
+      grid-template-columns: 0fr 1fr 1fr;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.switch::after {
+  content: '';
+  border-radius: 50%;
+  background: #1C88F3;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -webkit-transition: background .2s;
+  transition: background .2s;
+}
+/*# sourceMappingURL=switcher-params.css.map */
