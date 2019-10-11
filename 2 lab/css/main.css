@@ -645,6 +645,8 @@ main#main .container section.item .section-content .certification-block .certifi
 }
 
 main#main .container section.item .section-content .certification-block .certificate-href {
+  display: inline-block;
+  margin-top: 10px;
   text-align: right;
   color: #2c3032;
 }
