@@ -82,8 +82,16 @@ header#header{
 
 main#main{
     background: $main-bg-color 0% 0% no-repeat padding-box;
+    #left{
+        padding-right: 50px;
+    }
+    #right{
+        padding-left: 50px;
+    }
     .container{
-        position: relative; 
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         section.item{
             padding: 20px 0;
             h2{

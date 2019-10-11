@@ -543,8 +543,20 @@ main#main {
   background: #F4FCFF 0% 0% no-repeat padding-box;
 }
 
+main#main #left {
+  padding-right: 50px;
+}
+
+main#main #right {
+  padding-left: 50px;
+}
+
 main#main .container {
   position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(400px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 main#main .container section.item {

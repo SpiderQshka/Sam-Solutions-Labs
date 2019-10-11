@@ -1,8 +1,11 @@
-@media all and (max-width: 1100px) {
+@media all and (max-width: 999px) {
   #gallery {
     -ms-grid-column: 1 !important;
     -ms-grid-column-span: 1 !important;
     grid-column: 1 / 2 !important;
+  }
+  #left, #right {
+    padding: 0 !important;
   }
 }
 
