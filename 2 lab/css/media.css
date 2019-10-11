@@ -31,5 +31,9 @@
   main#main #left, main#main #right {
     padding: 0 10px;
   }
+  main#main .container {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+  }
 }
 /*# sourceMappingURL=media.css.map */
