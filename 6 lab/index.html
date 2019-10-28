@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>lab 6</title>
+</head>
+<body>
+    <main id="main">
+        <header>
+            <h1>Оставьте свой отзыв</h1>
+            <p>Помогите нашим отелям стать лучше! Оставьте отзыв о них, а также о посещённых вами достопримечательностях</p>
+        </header>
+        <form id='form'>
+            <fieldset name="impression">
+                <legend><h1>Ваше общее впечатление:</h1></legend>
+                <ul>
+                    <li><label><input type="radio" onchange="impressionChange(this.value)" name='impressionInput' value="0" required checked>Скорее</label></li>
+                    <li><label><input type="radio" onchange="impressionChange(this.value)" name='impressionInput' value="50" required>Скорее</label></li>
+                    <li><label><input type="radio" onchange="impressionChange(this.value)" name='impressionInput' value="100" required>Скорее</label></li>
+                </ul>
+                <!-- meter -->
+                <meter name='impressionRange' id="impessionRange" min="0" max='100' value='100'></meter>
+            </fieldset>
+            <fieldset>
+                <legend><h1>Представьтесь:</h1></legend>
+                <ul>
+                    <li><label>Имя:<input type="text" name='userData' value="name" required></label></li>
+                    <li><label>Фамилия:<input type="text" name='userData' value="surname" required></label></li>
+                    <li><label>Отчество:<input type="text" name='userData' value="patronymic" required></label></li>
+                </ul>
+            </fieldset>
+            <fieldset name="contacts">
+                <legend><h1>Контактная информация:</h1></legend>
+                <ul>
+                    <li><label>Телефон:<input name='tel' type="tel" value='123 321 123' required></label></li>
+                    <li><label>Электронная почта:<input name='email' type="email" value="ex@gmail.com" required></label></li>
+                </ul>
+            </fieldset>
+            <fieldset name='tripDetails'>
+                <legend><h1>Детали поездки:</h1></legend>
+                <ul>
+                    <li><label><input type="date" required></label></li>
+                    <li><label><select name="countrySelect" id="country-select" required>
+                        <option value="Belarus">Беларусь</option>
+                        <option value="Italy">Италия</option>
+                        <option value="Estony">Эстония</option>
+                    </select></li>
+                    <li><ul>
+                        <li><label><input value='1' type="checkbox" name='place' checked></label></li>
+                        <li><label><input value='2' type="checkbox" name='place'></label></li>
+                        <li><label><input value='3' type="checkbox" name='place'></label></li>
+                    </ul></li>
+                </ul>
+            </fieldset>
+            <fieldset name="guideFeedback">
+                <legend>
+                    <h1>Оцените качество услуг гида:</h1>
+                </legend>
+                <ul>
+                    <li>
+                        <label>
+                            <input type="checkbox" required checked>
+                        </label>
+                        <input type="range" name="guideValue">
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox">
+                        </label>
+                        <input type="range" disabled>
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <h1>Галерея:</h1>
+                </legend>
+                <input type="file" name="gallery">
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <h1>Опишите свои эмоции:</h1>
+                </legend>
+                <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
+            </fieldset>
+            <input type="submit" value="Отправить отзыв">
+        </form>
+        <div id="dialog">
+            <!-- <ul></ul> -->
+        </div>
+    </main>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
