@@ -1,42 +1,97 @@
 const form = document.getElementById('form');
-
-// const fieldsets = {
-//     impression: {
-//         element: form.elements.impression
-//     },
-//     userData: {
-//         element: form.elements.userData
-//     },
-//     contacts: {
-//         element: form.elements.contacts
-//     },
-//     tripDetails: {
-//         element: form.elements.tripDetails
-//     },
-//     guideFeedback: {
-//         element: form.elements.guideFeedback
-//     },
-//     gallery: {
-//         element: form.elements.gallery
-//     },
-//     feedback: {
-//         element: form.elements.feedback
-//     },
-// }
-
+const meter = form.querySelector('#impessionRange');
 const dialog = document.getElementById('dialog');
+const impressionRadios = Array.from(form.elements.impressionInput);
+const places = form.querySelector('#places');
+const countrySelect = form.elements.countrySelect;
+const contriesPlaces = {
+    belarus: [
+        {
+            name: 'Belarus 1',
+            img: '#'
+        },
+        {
+            name: 'Belarus 2',
+            img: '#'
+        },
+        {
+            name: 'Belarus 3',
+            img: '#'
+        }
+    ],
+    italy: [
+        {
+            name: 'Italy 1',
+            img: '#'
+        },
+        {
+            name: 'Italy 2',
+            img: '#'
+        },
+        {
+            name: 'Italy 3',
+            img: '#'
+        }
+    ],
+    estony: [
+        {
+            name: 'Estony 1',
+            img: '#'
+        },
+        {
+            name: 'Estony 2',
+            img: '#'
+        },
+        {
+            name: 'Estony 3',
+            img: '#'
+        }
+    ]
+}
+
+// Создание шаблона пункта списка достопримечательностей
+
+const liTemplate = document.createElement('li');
+const label = document.createElement('label');
+const input = document.createElement('input');
+const text = document.createElement('span');
+input.type = 'checkbox';
+label.appendChild(input);
+label.appendChild(text);
+liTemplate.appendChild(label);
+liTemplate.style.display = 'none';
+
+// Добавление списка на страницу
+
+for(let country in contriesPlaces){
+    contriesPlaces[country].forEach( 
+        place => {
+            const li = liTemplate.cloneNode(true);
+            li.firstChild.lastChild.innerText = place.name;
+            places.appendChild(li);
+        }
+    )
+}
+
+// Установка начального значения шкалы
+meter.value = impressionRadios.filter(el => el.checked)[0].value;
+
+// Установка листнеров на каждую радиокнопку
+impressionRadios.forEach(el => el.onchange = e => impressionChange(e.target.value));
+
+// Закрывать диалоговое окно при двойном клике
 dialog.ondblclick = () => {
     dialog.style.display = 'none';
 }
 
-console.log(form.elements)
-
-Array.from(form.elements.impressionInput).filter(el => el.checked)[0]
-
 const impressionChange = v => {
-    form.querySelector('#impessionRange').value = v;
+    meter.value = v;
 }
 
+countrySelect.onchange = e => {
+    Array.from(places.children).forEach()
+    // console.log(Array.from(places.children))
+}
 
 form.addEventListener('submit', e => {
     dialog.innerHTML = '';

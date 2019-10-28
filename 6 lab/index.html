@@ -17,11 +17,10 @@
             <fieldset name="impression">
                 <legend><h1>Ваше общее впечатление:</h1></legend>
                 <ul>
-                    <li><label><input type="radio" onchange="impressionChange(this.value)" name='impressionInput' value="0" required checked>Скорее</label></li>
-                    <li><label><input type="radio" onchange="impressionChange(this.value)" name='impressionInput' value="50" required>Скорее</label></li>
-                    <li><label><input type="radio" onchange="impressionChange(this.value)" name='impressionInput' value="100" required>Скорее</label></li>
+                    <li><label><input type="radio" name='impressionInput' value="0" required>:(</label></li>
+                    <li><label><input type="radio" name='impressionInput' value="50" required>:|</label></li>
+                    <li><label><input type="radio" name='impressionInput' value="100" required checked>:)</label></li>
                 </ul>
-                <!-- meter -->
                 <meter name='impressionRange' id="impessionRange" min="0" max='100' value='100'></meter>
             </fieldset>
             <fieldset>
@@ -43,15 +42,21 @@
                 <legend><h1>Детали поездки:</h1></legend>
                 <ul>
                     <li><label><input type="date" required></label></li>
-                    <li><label><select name="countrySelect" id="country-select" required>
-                        <option value="Belarus">Беларусь</option>
-                        <option value="Italy">Италия</option>
-                        <option value="Estony">Эстония</option>
+                    <li><label><select name="countrySelect" required>
+                        <option value="belarus">Беларусь</option>
+                        <option value="italy">Италия</option>
+                        <option value="estony">Эстония</option>
                     </select></li>
-                    <li><ul>
-                        <li><label><input value='1' type="checkbox" name='place' checked></label></li>
-                        <li><label><input value='2' type="checkbox" name='place'></label></li>
-                        <li><label><input value='3' type="checkbox" name='place'></label></li>
+                    <li><ul name='places' id='places'>
+                        <!-- <li class="place place-b"><label><input value='Belarus1' type="checkbox" name='place' checked>Belarus 1</label></li>
+                        <li class="place place-b"><label><input value='Belarus2' type="checkbox" name='place'>Belarus 2</label></li>
+                        <li class="place place-b"><label><input value='Belarus3' type="checkbox" name='place'>Belarus 3</label></li>
+                        <li class="place place-i"><label><input value='Italy1' type="checkbox" name='place' checked>Belarus 1</label></li>
+                        <li class="place place-i"><label><input value='Italy2' type="checkbox" name='place'>Belarus 2</label></li>
+                        <li class="place place-i"><label><input value='Italy3' type="checkbox" name='place'>Belarus 3</label></li>
+                        <li class="place place-e"><label><input value='Estony1' type="checkbox" name='place' checked>Belarus 1</label></li>
+                        <li class="place place-e"><label><input value='Estony2' type="checkbox" name='place'>Belarus 2</label></li>
+                        <li class="place place-e"><label><input value='Estony3' type="checkbox" name='place'>Belarus 3</label></li> -->
                     </ul></li>
                 </ul>
             </fieldset>

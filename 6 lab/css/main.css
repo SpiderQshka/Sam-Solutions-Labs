@@ -33,4 +33,8 @@ main #dialog {
   color: black;
   display: none;
 }
+
+main .place {
+  display: none;
+}
 /*# sourceMappingURL=main.css.map */
