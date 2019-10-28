@@ -90,7 +90,6 @@ const impressionChange = v => {
 
 countrySelect.onchange = e => {
     Array.from(places.children).forEach()
-    // console.log(Array.from(places.children))
 }
 
 form.addEventListener('submit', e => {
