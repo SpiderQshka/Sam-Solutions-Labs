@@ -33,6 +33,23 @@ main{
         display: none;
     }
     .place{
+        position: relative;
         display: none;
+        img{
+            position: absolute;
+            display: none;
+            top: -50px;
+            right: 0;
+            width: 40px;
+            height: 40px;
+        }
+        &:hover{
+            img{
+                display: block;
+            }
+        }
+    }
+    .visible{
+        display: inline;
     }
 }

@@ -35,6 +35,24 @@ main #dialog {
 }
 
 main .place {
+  position: relative;
   display: none;
+}
+
+main .place img {
+  position: absolute;
+  display: none;
+  top: -50px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+}
+
+main .place:hover img {
+  display: block;
+}
+
+main .visible {
+  display: inline;
 }
 /*# sourceMappingURL=main.css.map */
