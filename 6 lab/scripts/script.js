@@ -1,10 +1,7 @@
+import validate from './validate.js' 
+
 const form = document.getElementById('form');
-const meter = form.querySelector('#impessionRange');
 const dialog = document.getElementById('dialog');
-const impressionRadios = Array.from(form.elements.impressionInput);
-const places = form.querySelector('#places');
-const countrySelect = form.elements.countrySelect;
-const loadingImg = '../img/loading.png';
 const contriesPlaces = {
     belarus: [
         {
@@ -50,8 +47,24 @@ const contriesPlaces = {
     ]
 }
 
-// Создание шаблона пункта списка достопримечательностей
+// Fieldsets
+const impressionField = form.elements.impression;
+const userDataField = form.elements.userData;
+const contactsField = form.elements.contacts;
+const tripDetailsField = form.elements.tripDetails;
+const guideFeedbackField = form.elements.guideFeedback;
+const galleryField = form.elements.gallery;
+const feedbackField = form.elements.feedback;
+console.dir(form.elements)
 
+const meter = form.querySelector('#impessionRange');
+const impressionRadios = Array.from(form.elements.impressionInput);
+const places = form.querySelector('#places');
+const countrySelect = form.elements.countrySelect;
+const loadingImg = '../img/loading.png';
+const galleryImages = document.querySelector('#galleryImages');
+
+// Создание шаблона пункта списка достопримечательностей
 const liTemplate = document.createElement('li');
 const label = document.createElement('label');
 const input = document.createElement('input');
@@ -64,11 +77,8 @@ label.appendChild(text);
 liTemplate.appendChild(label);
 liTemplate.appendChild(img);
 liTemplate.classList.add('place');
-// Вынеси в классы, балбес
 
-
-// Добавление списка на страницу
-
+// Добавление списка достопримечательностей на страницу
 for(let country in contriesPlaces){
     contriesPlaces[country].forEach( 
         place => {
@@ -84,20 +94,22 @@ for(let country in contriesPlaces){
 }
 
 // Установка начального значения шкалы
-meter.value = impressionRadios.filter(el => el.checked)[0].value;
 
-// Установка листнеров на каждую радиокнопку
-impressionRadios.forEach(el => el.onchange = e => impressionChange(e.target.value));
 
-const impressionChange = v => {
-    meter.value = v;
-}
+meter.value = impressionRadios.filter(el => el.checked).length ?
+                impressionRadios.filter(el => el.checked)[0].value :
+                100;
+
+// Установка листнеров на каждую радиокнопку,
+// При изменении активной радиокнопки изменяется значение шкалы
+impressionRadios.forEach(el => el.onchange = e => meter.value = e.target.value);
 
 // Закрывать диалоговое окно при двойном клике
 dialog.ondblclick = () => {
-    dialog.style.display = 'none';
+    dialog.classList.add('disabled');
 }
 
+// Изначальное отображение достопримечательностей
 Array.from(places.children).forEach(
     place => {
         place.classList.contains(countrySelect.value) ?
@@ -106,6 +118,7 @@ Array.from(places.children).forEach(
     }
 )
 
+// Установка листнеров на изменение значения селекта
 countrySelect.onchange = e => {
     Array.from(places.children).forEach(
         place => {
@@ -119,8 +132,48 @@ countrySelect.onchange = e => {
     )
 }
 
+// Установка листнеров на изменение значения чекбоксов "Качество услуг гида",
+// При неактивном чекбоксе - не отображаем range
+const guideFeedbackInputs = form.elements.guideFeedbackInput;
+const guideFeedbackRanges = form.elements.guideFeedbackRange;
+Array.from(guideFeedbackInputs).forEach(
+    (input, i) => {
+        input.checked ? guideFeedbackRanges[i].disabled = false : guideFeedbackRanges[i].disabled = true;
+        input.onchange = () => {
+            if(input.checked){
+                guideFeedbackRanges[i].disabled = false;
+                console.log('Enabled');
+            }
+            else{
+                guideFeedbackRanges[i].disabled = true;
+                guideFeedbackRanges[i].value = 0;
+                console.log('Disabled');
+            }
+        } 
+    } 
+)
 
-const guideFeedback = Array.from(form.elements.guideFeedback.querySelector('ul').children)
+const galleryInput = form.elements.galleryInput;
+
+galleryInput.onchange = e => {
+    const imagesArray = Array.from(e.target.files);
+    imagesArray.forEach(
+        file => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const img = document.createElement('img');
+                img.src = reader.result
+                galleryImages.appendChild(img);
+            }
+            reader.onerror = () => {
+                const errorInfo = document.createElement('p');
+                errorInfo.innerText = reader.error;
+                galleryImages.appendChild(errorInfo)
+            };
+        }
+    )
+}
 
 form.addEventListener('submit', e => {
     dialog.innerHTML = '';
@@ -147,7 +200,7 @@ form.addEventListener('submit', e => {
     guideFeedback.innerHTML = `Guide value: ${form.elements.guideValue.value}`;
 
     const gallery = document.createElement('li');
-    gallery.innerHTML = `Image: ${form.elements.gallery.value}`;
+    gallery.innerHTML = `Image: ${form.elements.galleryInput.value}`;
 
     const feedback = document.createElement('li');
     feedback.innerHTML = `Feedback: ${form.elements.feedback.value}`;
@@ -155,5 +208,5 @@ form.addEventListener('submit', e => {
     dialog.append(impression, userData, contacts, tripDetails,
                 guideFeedback, gallery, feedback);
 
-    dialog.style.display = 'block';
+    dialog.classList.add('visible');
 })

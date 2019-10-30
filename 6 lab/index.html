@@ -17,31 +17,31 @@
             <fieldset name="impression">
                 <legend><h1>Ваше общее впечатление:</h1></legend>
                 <ul>
-                    <li><label><input type="radio" name='impressionInput' value="0" required>:(</label></li>
-                    <li><label><input type="radio" name='impressionInput' value="50" required>:|</label></li>
-                    <li><label><input type="radio" name='impressionInput' value="100" required checked>:)</label></li>
+                    <li><label><input type="radio" name='impressionInput' value="0" >:(</label></li>
+                    <li><label><input type="radio" name='impressionInput' value="50" >:|</label></li>
+                    <li><label><input type="radio" name='impressionInput' value="100" checked>:)</label></li>
                 </ul>
                 <meter name='impressionRange' id="impessionRange" min="0" max='100' value='100'></meter>
             </fieldset>
-            <fieldset>
+            <fieldset name="userData">
                 <legend><h1>Представьтесь:</h1></legend>
                 <ul>
-                    <li><label>Имя:<input type="text" name='userData' value="name" required></label></li>
-                    <li><label>Фамилия:<input type="text" name='userData' value="surname" required></label></li>
-                    <li><label>Отчество:<input type="text" name='userData' value="patronymic" required></label></li>
+                    <li><label>Имя:<input type="text" name='userDataInput' value="name" ></label></li>
+                    <li><label>Фамилия:<input type="text" name='userDataInput' value="surname" ></label></li>
+                    <li><label>Отчество:<input type="text" name='userDataInput' value="patronymic" ></label></li>
                 </ul>
             </fieldset>
             <fieldset name="contacts">
                 <legend><h1>Контактная информация:</h1></legend>
                 <ul>
-                    <li><label>Телефон:<input name='tel' type="tel" value='123 321 123' required></label></li>
-                    <li><label>Электронная почта:<input name='email' type="email" value="ex@gmail.com" required></label></li>
+                    <li><label>Телефон:<input name='tel' type="tel" value='123 321 123' ></label></li>
+                    <li><label>Электронная почта:<input name='email' type="email" value="ex@gmail.com" ></label></li>
                 </ul>
             </fieldset>
             <fieldset name='tripDetails'>
                 <legend><h1>Детали поездки:</h1></legend>
-                <label><input type="date" required></label>
-                <select name="countrySelect" required>
+                <label><input name='tripDate' type="date" ></label>
+                <select name="countrySelect"  >
                     <option value="belarus">Беларусь</option>
                     <option value="italy">Италия</option>
                     <option value="estony">Эстония</option>
@@ -56,36 +56,41 @@
                 <ul>
                     <li>
                         <label>
-                            <input type="checkbox" required checked>
+                            <p>На родном языке</p>
+                            <input name='guideFeedbackInput' type="checkbox" checked>
                         </label>
-                        <input type="range" name="guideValue">
+                        <input type="range" name="guideFeedbackRange">
+                        <span>Не пользовались</span>
                     </li>
                     <li>
                         <label>
-                            <input type="checkbox">
+                                <p>На языке посещённой страны</p>
+                            <input name='guideFeedbackInput' type="checkbox">
                         </label>
-                        <input type="range" disabled>
+                        <input type="range" name="guideFeedbackRange" disabled>
+                        <span>Не пользовались</span>
                     </li>
                 </ul>
             </fieldset>
-            <fieldset>
+            <fieldset name='gallery'>
                 <legend>
                     <h1>Галерея:</h1>
                 </legend>
-                <input type="file" name="gallery">
+                <input type="file" name="galleryInput" min='3' accept=".jpg, .jpeg, .png" multiple>
+                <div id="galleryImages"></div>
             </fieldset>
-            <fieldset>
+            <fieldset name="feedback">
                 <legend>
                     <h1>Опишите свои эмоции:</h1>
                 </legend>
-                <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
+                <textarea name="feedbackInput" placeholder="Урааа"></textarea>
             </fieldset>
             <input type="submit" value="Отправить отзыв">
         </form>
         <div id="dialog">
-            <!-- <ul></ul> -->
+
         </div>
     </main>
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script.js" type='module'></script>
 </body>
 </html>

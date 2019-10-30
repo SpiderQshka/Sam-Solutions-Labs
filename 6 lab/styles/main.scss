@@ -3,6 +3,9 @@
 *{
     box-sizing: border-box;
 }
+ul{
+    list-style: none;
+}
 
 main{
     position: relative;
@@ -31,6 +34,9 @@ main{
         background: white;
         color: black;
         display: none;
+        &.visible{
+            display: block;
+        }
     }
     .place{
         position: relative;
@@ -51,5 +57,45 @@ main{
     }
     .visible{
         display: inline;
+    }
+    .disabled{
+        display: none;
+    }
+    fieldset{
+        position: relative;
+    }
+    fieldset[name='guideFeedback']{
+        span{
+            display: none;
+        }
+        input:disabled{
+            display: none;
+            & ~ span{
+                display: inline;
+            }
+        }
+    }
+    fieldset[name='gallery']{
+        #galleryImages{
+            img{
+                display: block;
+                margin: 0 auto;
+                min-width: 100px;
+                max-width: 100%;
+            }
+        }
+    }
+    textarea[name='feedback']{
+        width: 100%;
+        min-height: 200px;
+        min-width: 100px;
+        resize: none;
+    }
+    .error-msg{
+        position: absolute; 
+        bottom: 0;
+        right: 0;
+        padding: 12px;
+        color: red;
     }
 }

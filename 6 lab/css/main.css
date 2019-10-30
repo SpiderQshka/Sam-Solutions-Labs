@@ -3,6 +3,10 @@
           box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 main {
   position: relative;
   max-width: 900px;
@@ -34,6 +38,10 @@ main #dialog {
   display: none;
 }
 
+main #dialog.visible {
+  display: block;
+}
+
 main .place {
   position: relative;
   display: none;
@@ -54,5 +62,47 @@ main .place:hover img {
 
 main .visible {
   display: inline;
+}
+
+main .disabled {
+  display: none;
+}
+
+main fieldset {
+  position: relative;
+}
+
+main fieldset[name='guideFeedback'] span {
+  display: none;
+}
+
+main fieldset[name='guideFeedback'] input:disabled {
+  display: none;
+}
+
+main fieldset[name='guideFeedback'] input:disabled ~ span {
+  display: inline;
+}
+
+main fieldset[name='gallery'] #galleryImages img {
+  display: block;
+  margin: 0 auto;
+  min-width: 100px;
+  max-width: 100%;
+}
+
+main textarea[name='feedback'] {
+  width: 100%;
+  min-height: 200px;
+  min-width: 100px;
+  resize: none;
+}
+
+main .error-msg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 12px;
+  color: red;
 }
 /*# sourceMappingURL=main.css.map */
