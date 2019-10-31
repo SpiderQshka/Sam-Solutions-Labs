@@ -19,7 +19,7 @@
                 <ul>
                     <li><label><input type="radio" name='impressionInput' value="0" >:(</label></li>
                     <li><label><input type="radio" name='impressionInput' value="50" >:|</label></li>
-                    <li><label><input type="radio" name='impressionInput' value="100" checked>:)</label></li>
+                    <li><label><input type="radio" name='impressionInput' value="100" checked>:)))))))))))</label></li>
                 </ul>
                 <meter name='impressionRange' id="impessionRange" min="0" max='100' value='100'></meter>
             </fieldset>
@@ -34,20 +34,23 @@
             <fieldset name="contacts">
                 <legend><h1>Контактная информация:</h1></legend>
                 <ul>
-                    <li><label>Телефон:<input name='tel' type="tel" value='123 321 123' ></label></li>
+                    <li><label>Телефон:<input name='tel' type="tel" value='123 321 123'></label></li>
                     <li><label>Электронная почта:<input name='email' type="email" value="ex@gmail.com" ></label></li>
                 </ul>
             </fieldset>
             <fieldset name='tripDetails'>
                 <legend><h1>Детали поездки:</h1></legend>
-                <label><input name='tripDate' type="date" ></label>
-                <select name="countrySelect"  >
-                    <option value="belarus">Беларусь</option>
-                    <option value="italy">Италия</option>
-                    <option value="estony">Эстония</option>
-                </select>
-                <ul name='places' id='places'>
-                </ul>
+                <fieldset name="tripDate"><label><input name='tripDateInput' type="date" ></label></fieldset>
+                <fieldset name="countrySelect">
+                    <select name="countrySelectInput" multiple>
+                        <option value="belarus">Беларусь</option>
+                        <option value="italy">Италия</option>
+                        <option value="estony">Эстония</option>
+                    </select>
+                    <ul name='places' id='places'>
+                    </ul>
+                </fieldset>
+                
             </fieldset>
             <fieldset name="guideFeedback">
                 <legend>

@@ -1,85 +1,104 @@
-const validate = () => {
-    const elements = form.elements;
-    const errorMsg = document.createElement('div');
-    errorMsg.innerText = 'Поле обязательно к заполнению';
-    errorMsg.classList.add('error-msg')
-    
-    const isImpressionFilled = () => {
-        if(elements.impressionInput.value === 0 || 
-            !!elements.impressionInput.value){
-                return true;
-            }
-        elements.impression.appendChild(errorMsg.cloneNode(true));
-        return false;
+const inputs = [
+    {name: 'impressionInput'},
+    {name: 'tel'},
+    {name: 'email'},
+    {name: 'tripDateInput'},
+    {name: 'countrySelectInput'},
+    {name: 'galleryInput'},
+    {name: 'feedbackInput'}
+]
+const elements = form.elements;
+const errorMsg = document.createElement('div');
+errorMsg.innerText = 'Поле обязательно к заполнению';
+errorMsg.classList.add('error-msg')
+
+const showErrorMsg = element => {
+    const isErrorMsgAlreadyExsist = !!element.querySelector('.error-msg');
+
+    console.log(element, 'error', isErrorMsgAlreadyExsist)
+
+    if(!isErrorMsgAlreadyExsist){
+        element.appendChild(errorMsg.cloneNode(true));
     }
 
-    const isUserInfoFilled = () => {
-        const isFilled = Array.from(elements.userDataInput).every(
-            input => input.value
-        );
-        if(isFilled){
-            return true;
-        }
-        elements.userData.appendChild(errorMsg.cloneNode(true));
-        return false;
+    return false;
+}
+
+const deleteErrorMsg = element => {
+    const isErrorMsgExsist = !!element.querySelector('.error-msg');
+
+    if(isErrorMsgExsist){
+        element.removeChild(element.querySelector('.error-msg'))
     }
 
-    const areContactsFilled = () => {
-        const isFilled = Array.from(elements.contacts).every(
-            input => input.value
-        );
-        if(isFilled){
-            return true;
-        }
-        elements.contacts.appendChild(errorMsg.cloneNode(true));
-        return false;
-    } 
+    return true;
+}
 
-    const areTripDetailsFilled = () => {
-        const isFilled = !!(elements.tripDate.value && elements.countrySelect.value);
-        if(isFilled){
-            return true;
-        }
-        elements.tripDetails.appendChild(errorMsg.cloneNode(true));
-        return false;
-    };
+const validate = (element = null) => {
+    if(element === null){
+        const result = inputs.map(
+            input => validate(input)
+        )
+        return result.every(el => el);
+    }
 
-    // const areGuideFeedbackFilled = Array.from(elements.guideFeedbackInput).some(
-    //     input => !!input.value
-    // )
+    switch(element.name){
+        case('impressionInput'):
+            const isImpressionFilled = elements.impressionInput.value === 0 || 
+                !!elements.impressionInput.value;
+            
+            return isImpressionFilled ? 
+                deleteErrorMsg(elements.impression) :
+                showErrorMsg(elements.impression);
+        case('userDataInput'):
+            const isUserInfoFilled = Array.from(elements.userDataInput).every(
+                input => input.value
+            );
 
-    // console.log(elements.guideFeedbackInput)
+            return isUserInfoFilled ?
+                deleteErrorMsg(elements.userData) :
+                showErrorMsg(elements.userData);
+        case('tel'):
+            const isTelFilled = !!elements.tel.value;
 
-    // if(!areGuideFeedbackFilled){
-    //     elements.guideFeedback.appendChild(errorMsg.cloneNode(true));
-    // }
+            return isTelFilled ?
+                deleteErrorMsg(elements.contacts) :
+                showErrorMsg(elements.contacts);
+        case('email'):
+            const isEmailFilled = !!elements.email.value
 
-    const isGalleryFilled = () => {
-        const isFilled = !!elements.galleryInput.files.length;
-        if(isFilled){
-            return true;
-        }
-        elements.gallery.appendChild(errorMsg.cloneNode(true));
-        return false;
-    };
+            return isEmailFilled ?
+                deleteErrorMsg(elements.contacts) :
+                showErrorMsg(elements.contacts);
+        case('tripDateInput'):
+            const isDateFilled = !!elements.tripDateInput.value
+            
+            return isDateFilled ?
+                deleteErrorMsg(elements.tripDate) :
+                showErrorMsg(elements.tripDate);
+        case('countrySelectInput'):
+            const countries = [...elements.countrySelectInput.selectedOptions].map(
+                country => country.value
+            )
+            const areCountriesFilled = !!countries[0];
+            return areCountriesFilled ?
+                deleteErrorMsg(elements.countrySelect) :
+                showErrorMsg(elements.countrySelect);
+        case('galleryInput'):
+            const isGalleryFilled = !!elements.galleryInput.files.length;
 
-    const isFeedbackFilled = () => {
-        const isFilled = !!elements.feedbackInput.value;
-        if(isFilled){
-            return true;
-        }
-        elements.feedback.appendChild(errorMsg.cloneNode(true));
-        return false;
-    };
+            return isGalleryFilled ?
+                deleteErrorMsg(elements.gallery) :
+                showErrorMsg(elements.gallery);
+        case('feedbackInput'):
+            const isFeedbackFilled = !!elements.feedbackInput.value;
 
-    return {
-        // isImpressionFilled,
-        isUserInfoFilled,
-        areContactsFilled,
-        areTripDetailsFilled,
-        // areGuideFeedbackFilled,
-        isGalleryFilled,
-        isFeedbackFilled
+            return isFeedbackFilled ?
+                deleteErrorMsg(elements.feedback) :
+                showErrorMsg(elements.feedback);
+        default:
+            console.log(`${element.name} doesn't needed in your goddamn validation`);
+            return true
     }
 }
 

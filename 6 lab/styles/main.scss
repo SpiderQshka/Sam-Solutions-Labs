@@ -85,7 +85,7 @@ main{
             }
         }
     }
-    textarea[name='feedback']{
+    textarea{
         width: 100%;
         min-height: 200px;
         min-width: 100px;
@@ -97,5 +97,17 @@ main{
         right: 0;
         padding: 12px;
         color: red;
+    }
+    .range-container{
+        position: relative;
+        width: 100px;
+        height: 20px;
+        border: 1px solid #000;
+        .dot{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+        }
     }
 }
