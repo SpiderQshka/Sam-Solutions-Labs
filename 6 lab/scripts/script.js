@@ -1,5 +1,5 @@
 import validate from './validate.js' 
-import createRange from './range.js';
+// import createRange from './range.js';
 
 const form = document.getElementById('form');
 const dialog = document.getElementById('dialog');
@@ -54,7 +54,7 @@ const countrySelect = form.elements.countrySelectInput;
 const loadingImg = '../img/loading.png';
 const galleryImages = document.querySelector('#galleryImages');
 
-form.appendChild(createRange());
+// form.appendChild(createRange());
 
 // Создание шаблона пункта списка достопримечательностей
 const liTemplate = document.createElement('li');
