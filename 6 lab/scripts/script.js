@@ -159,8 +159,28 @@ Array.from(guideFeedbackInputs).forEach(
     } 
 )
 
+// Изначальное отображение фотографий
 const galleryInput = form.elements.galleryInput;
+const imagesArray = Array.from(galleryInput.files);
+imagesArray.forEach(
+    file => {
+        console.log(file)
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            const img = document.createElement('img');
+            img.src = reader.result
+            galleryImages.appendChild(img);
+        }
+        reader.onerror = () => {
+            const errorInfo = document.createElement('p');
+            errorInfo.innerText = reader.error;
+            galleryImages.appendChild(errorInfo)
+        };
+    }
+)
 
+// Установка листнеров на изменение файлов в галерее
 galleryInput.onchange = e => {
     const imagesArray = Array.from(e.target.files);
     imagesArray.forEach(
@@ -232,8 +252,11 @@ form.addEventListener('submit', e => {
         const feedback = document.createElement('li');
         feedback.innerHTML = `Feedback: ${form.elements.feedbackInput.value}`;
 
+        const info = document.createElement('b');
+        info.innerHTML = 'Doubleclick to close'
+
         dialog.append(impression, userData, contacts, tripDetails,
-                    guideFeedback, gallery, feedback);
+                    guideFeedback, gallery, feedback, info);
 
         dialog.classList.add('visible');
     }
