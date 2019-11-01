@@ -43,19 +43,17 @@ const secondTask = async () => {
     xhr.send();
 
     xhr.onload = () => {
-        JSON.parse(xhr.response).forEach(
-            repo => console.log(repo.watchers_count)
-        )
         output.innerHTML = '';
         xhrResult = (JSON.parse(xhr.response))
         const bestRepo = xhrResult.reduce(
             (result, current) =>
-                current.watchers_count > (result.watchers_count || 0) ? 
+                current.created_at > (result.created_at || 0) ? 
                     current :
                     result
         )
         const element = document.createElement('p');
-        element.innerHTML = `Best repo: '${bestRepo.name}' with ${bestRepo.watchers_count} watches`;
+        element.innerHTML = `Newest repo: ${bestRepo.name}. <br> P.S. Sorted by creation date cause github 
+        has some troubles with updating watches, approved by mentor`;
         output.appendChild(element);
     }
 }
@@ -90,7 +88,6 @@ let timeout;
 function recursion(){
     firstTask();
     secondTask();
-    console.log('!');
     timeout = setTimeout(recursion, 1000);
 }
 
