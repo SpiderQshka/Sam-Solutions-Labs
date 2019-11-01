@@ -61,9 +61,10 @@ const secondTask = async () => {
 const thirdTask = async () => {
     output.innerHTML = '';
 
-    const response = await fetch('https://api.github.com/users/spiderqshka/repos');
+    const response = await (fetch())
+    .catch(() => fetch('https://api.github.com/users/spiderqshka/repos'));
 
-    const result = await response.json()
+    const result = await response.json();
 
     const detailInfo = document.createElement('ul');
 
