@@ -1,17 +1,9 @@
-const btn = document.getElementById('btn');
+const form = document.getElementById('form');
 
-window.onstorage = () => {
-    localStorage.getItem('isThemeDark') ? 
-        document.body.classList.add('dark') :
-        document.body.classList.remove('dark');
-}
+const inputs = [...form.elements].filter(el => el.nodeName === 'INPUT');
 
-btn.onchange = () => {
-    if(localStorage.getItem('isThemeDark')){
-        localStorage.removeItem('isThemeDark');
-        document.body.classList.remove('dark');
-    } else {
-        localStorage.setItem('isThemeDark', true);
-        document.body.classList.add('dark');
-    }
-}
+inputs.forEach(
+    input =>
+        input.value = localStorage.getItem(input.name))
+
+form.onchange = e => localStorage.setItem(e.target.name, e.target.value);

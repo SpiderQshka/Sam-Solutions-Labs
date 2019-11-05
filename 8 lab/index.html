@@ -8,8 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="header">Header</h1>
-    <label><input id="btn" type="checkbox">Click me</label>
+    <form id="form">
+        <fieldset>
+            <legend>The simplest form ever</legend>
+            <label>Nickname<input type="text" name="nickname"></label>
+            <label>Email<input type="email" name='email'></label>
+            <label>Password<input type="password" name="password"></label>
+        </fieldset>
+        <button type="submit" id="submit">Submit</button>
+    </form>
     <script src='./scripts/script.js'></script>
 </body>
 </html>
