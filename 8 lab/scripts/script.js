@@ -1,17 +1,15 @@
-const btn = document.getElementById('btn');
+const btn = document.getElementById('disable-adds');
+const adds = document.getElementById('adds');
 
-window.onstorage = () => {
-    localStorage.getItem('isThemeDark') ? 
-        document.body.classList.add('dark') :
-        document.body.classList.remove('dark');
-}
+const isCookieExsist = cookie => 
+    !!(document.cookie.match(new RegExp(cookie)));
 
-btn.onchange = () => {
-    if(localStorage.getItem('isThemeDark')){
-        localStorage.removeItem('isThemeDark');
-        document.body.classList.remove('dark');
-    } else {
-        localStorage.setItem('isThemeDark', true);
-        document.body.classList.add('dark');
-    }
+setInterval(() => {
+    isCookieExsist('timeCookie') ?
+        adds.classList.add('hidden') :
+        adds.classList.remove('hidden')
+}, 200)
+
+btn.onclick = () => {
+    document.cookie = 'timeCookie=""; max-age=3600';
 }
