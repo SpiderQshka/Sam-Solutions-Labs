@@ -3,8 +3,8 @@ import cookieSingleton from './cookieSingleton.js';
 const documentCookies = document.getElementById('documentCookies');
 const singletonCookies = document.getElementById('singletonCookies');
 const getCookieBtn = document.getElementById('getCookieBtn');
-const setCookie = document.getElementById('setCookie');
-const deleteCookie = document.getElementById('deleteCookie');
+const setCookieBtn = document.getElementById('setCookieBtn');
+const deleteCookieBtn = document.getElementById('deleteCookieBtn');
 const info = document.getElementById('info')
 
 const fillDocumentCookies = () => {
@@ -52,6 +52,13 @@ setCookieBtn.onclick = e => {
     catch(e){
         fillInfo(e);
     }
+    fillDocumentCookies();
+    fillSingletonCookies();
+}
+
+deleteCookieBtn.onclick = e => {
+    const name = e.target.previousElementSibling.value + '';
+    cookieSingleton.deleteCookie(name);
     fillDocumentCookies();
     fillSingletonCookies();
 }

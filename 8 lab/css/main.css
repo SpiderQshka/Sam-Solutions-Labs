@@ -1,4 +1,7 @@
-.hidden {
-  display: none;
+div {
+  min-height: 200px;
+  float: left;
+  padding: 0 20px;
+  border-right: 1px solid black;
 }
 /*# sourceMappingURL=main.css.map */

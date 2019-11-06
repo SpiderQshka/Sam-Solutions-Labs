@@ -1,4 +1,4 @@
-const getCookieStr = name => (document.cookie.match(new RegExp(`${name}=\S+;?`)) || [null])[0];
+const getCookieStr = name => (document.cookie.match(new RegExp(`${name}=\\S+;?`)) || [null])[0];
 const getCookieValue = str => str.split('=')[1];
 const deleteCookie = name => document.cookie = name + '=; Max-Age=-1;'; 
 
